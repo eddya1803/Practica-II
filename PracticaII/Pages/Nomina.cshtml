@@ -1,0 +1,69 @@
+﻿@page
+@model PracticaII.Pages.NominaModel
+@{
+
+    List<NominaModel> empleado = new List<NominaModel>()
+{
+
+        new NominaModel(){ Nombre = "Juan", Apellido = "Abreu", Cargo = "Mensajero", Salario = 25000.00 },
+
+        new NominaModel(){ Nombre = "Roberto", Apellido = "Jimenez", Cargo = "Administrador", Salario = 75000.00 },
+
+        new NominaModel(){ Nombre = "Ana", Apellido = "Martinez", Cargo = "Secretaria", Salario = 35000.00 },
+
+        new NominaModel(){ Nombre = "Juana", Apellido = "Fulcar", Cargo = "Gerente", Salario = 45000.00 },
+
+        new NominaModel(){ Nombre = "Manuel", Apellido = "Cortorreal", Cargo = "Encargado", Salario = 42000.00 },
+
+        new NominaModel(){ Nombre = "Edgar", Apellido = "Hernandez", Cargo = "Programador", Salario = 60000.00 },
+
+
+    };
+
+}
+
+
+<h1> Pago Mensual Empleados </h1>
+
+<table class="table table-hover">
+    <thead>
+
+        <tr>
+            <th>NOMBRE</th>
+            <th>APELLIDO</th>
+            <th>CARGO</th>
+            <th>SALARIO</th>
+            <th>DESCUENTO AFP</th>
+            <th>DESCUENTO ARS</th>
+            <th>DESCUENTO ISR</th>
+            <th>TOTAL DESCUENTOS</th>
+            <th>SALARIO NETO</th>
+
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        @foreach (var emp in empleado)
+        {
+
+        <tr>
+
+            <td> @emp.Nombre </td>
+            <td> @emp.Apellido </td>
+            <td> @emp.Cargo </td>
+            <td> @emp.Salario </td>
+            <td> @Math.Round(emp.CalcularAFP()) </td>
+            <td> @Math.Round(emp.CalcularARS()) </td>
+            <td> @Math.Round(emp.CalcularISR()) </td>
+            <td> @Math.Round(emp.CalcularTotDesc()) </td>
+            <td> @Math.Round(emp.CalcularNeto()) </td>
+                       
+        </tr>
+
+        }
+
+    </tbody>
+
+</table>

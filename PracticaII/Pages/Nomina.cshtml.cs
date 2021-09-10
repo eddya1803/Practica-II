@@ -51,7 +51,7 @@ namespace PracticaII.Pages
         // Metodo para resultado ISR
         public double CalcularISR()
         {
-            double excede = 0;
+            double excede = 0; // Variable que almacenara la diferencia del excedente
             SalarioAnual = (this.Salario - (DescAFP + DescARS)) * 12; 
 
             if (SalarioAnual >= 416220.01 && SalarioAnual <= 624329.00)
